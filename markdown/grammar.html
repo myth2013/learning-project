@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>grammar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="1-">1、标题的几种写法：</h1>
+<h2 id="-">第一种：</h2>
+<p>代码：</p>
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+####### 七级标题
+</code></pre><h1 id="-">一级标题</h1>
+<h2 id="-">二级标题</h2>
+<h3 id="-">三级标题</h3>
+<h4 id="-">四级标题</h4>
+<h5 id="-">五级标题</h5>
+<h6 id="-">六级标题</h6>
+<h6 id="-"># 七级标题</h6>
+<p>前面带#号，后面带文字，分别表示h1-h6,上面可以看出，只到h6，而且h1下面会有一条横线，注意，#号后面有空格</p>
+<h2 id="-">第二种：</h2>
+<p>代码：</p>
+<pre><code>这是一级标题
+=
+这是二级标题
+-
+</code></pre><p>这是一级标题<br>=<br>这是二级标题<br>-<br>这种方式只能表示一级和二级标题这种方式好像只能表示一级和二级标题，而且=和-的数量没有限制，只要大于一个就行</p>
+<h2 id="-">第三种：</h2>
+<p>代码：</p>
+<pre><code># 一级标题 #
+## 二级标题 ##
+</code></pre><h1 id="-">一级标题</h1>
+<h2 id="-">二级标题</h2>
+<p>这里的标题支持h1-h6，这个比较好理解，相当于标签闭合，注意，标题与#号要有空格</p>
+<p>那既然3种都可以使用，可不可以混合使用呢？我试了一下，是可以的，但是为了让页面标签的统一性，不建议混合使用，推荐使用第一种，比较简洁，全面.</p>
+<h1 id="2-">2、列表</h1>
+<p>列表分为有序列表和无序列表</p>
+<h2 id="-">无序列表</h2>
+<p>代码：</p>
+<pre><code>* 1
+* 2
+* 3
++ 1
++ 2
++ 3
+- 1
+- 2
+- 3
+</code></pre><ul>
+<li>1</li><li>2</li><li>3</li></ul>
+<ul>
+<li>1</li><li>2</li><li>3</li></ul>
+<ul>
+<li>1</li><li>2</li><li>3</li></ul>
+<p>可以看到，无序列表可以用* ， + ， - 来创建，用在线编辑器看，实际上是转换成了ul&gt;li ，所以使用哪个都可以，推荐使用*吧</p>
+<h2 id="-">有序列表</h2>
+<p>代码:</p>
+<pre><code>1. 列表1
+2. 列表2
+3. 列表3
+</code></pre><ol>
+<li>列表1</li><li>列表2</li><li>列表3</li></ol>
+<p>有序列表就相对简单一点，只有这一种方式，注意，数字后面的点只能是英文的点，特别注意，有序列表的序号是根据第一行列表的数字顺序来的，比如说：</p>
+<p>代码:</p>
+<pre><code>3. 列表1
+2. 列表2
+1. 列表3
+</code></pre><ol>
+<li>列表1</li><li>列表2</li><li>列表3</li></ol>
+<p>乱序</p>
+<p>代码:</p>
+<pre><code>3. 列表1
+9. 列表2
+1. 列表3
+</code></pre><ol>
+<li>列表1</li><li>列表2</li><li>列表3</li></ol>
+<h1 id="3-">3、区块引用</h1>
+<p>比如说，你想对某个部分做的内容做一些说明或者引用某某的话等，可以用这个语句</p>
+<p>代码:</p>
+<pre><code>* 列表1
+&gt; 这是毛主席说的
+* 列表2
+&gt; 注意：
+</code></pre><ul>
+<li>列表1<blockquote>
+<p>这是毛主席说的</p>
+</blockquote>
+</li><li>列表2<blockquote>
+<p>注意：</p>
+</blockquote>
+</li></ul>
+<p>无序列表下方的便是引用，可以有多种用途，看你的需求了，用法就是在语句前面加一个&gt; ，注意是英文的那个右尖括号，注意空格</p>
+<p>引用因为是一个区块，理论上是应该什么内容都可以放，比如说：标题，列表，引用等等</p>
+<p>代码:</p>
+<pre><code>&gt;## 标题
+&gt;* 列表1
+&gt;   &gt; 这是毛主席说的
+&gt;* 列表2
+&gt;   &gt; 注意：
+</code></pre><blockquote>
+<h2 id="-">标题</h2>
+<ul>
+<li>列表1<blockquote>
+<p>这是毛主席说的</p>
+</blockquote>
+</li><li>列表2<blockquote>
+<p>注意：</p>
+</blockquote>
+</li></ul>
+</blockquote>
+<p>将上面的代码稍微改一下，全部加上引用标签，就变成了一个大的引用，还有引用里面还有引用，那引用嵌套引用还没有别的写法呢？</p>
+<p>代码:</p>
+<pre><code>&gt; 一级引用
+&gt;&gt; 二级引用
+&gt;&gt;&gt; 三级引用
+&gt;&gt;&gt;&gt; 四级引用
+&gt;&gt;&gt;&gt;&gt; 五级引用
+&gt;&gt;&gt;&gt;&gt;&gt; 六级引用
+</code></pre><blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<p>三级引用</p>
+<blockquote>
+<p>四级引用</p>
+<blockquote>
+<p>五级引用</p>
+<blockquote>
+<p>六级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>想要在上一次引用中嵌套一层引用，只需多加一个&gt;，理论上可以无限嵌套，我就不整那么多了，注意：多层嵌套的&gt;是不需要连续在一起的，只要在一行就可以了，中间允许有空格，但是为了好看，还是把排版搞好吧</p>
+<h1 id="4-">4、华丽的分割线</h1>
+<p>分割线可以由* - _（星号，减号，底线）这3个符号的至少3个符号表示，注意至少要3个，且不需要连续，有空格也可以</p>
+<p>代码:</p>
+<pre><code>***
+******
+---
+- - -
+* * *
+---------
+_ _ _
+</code></pre><hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>应该看得懂吧，但是为了代码的排版好看，你们自己定规则吧，前面有用到星号，建议用减号</p>
+<h1 id="5-">5、链接</h1>
+<p>支持2种链接方式：行内式和参数式，不管是哪一种，链接文字都是用 [方括号] 来标记。</p>
+<h2 id="-">行内式</h2>
+<p>代码:</p>
+<pre><code>[妙语连珠](http://www.baidu.com &quot;百度&quot;)是什么意思
+</code></pre><p><a href="http://www.baidu.com" title="百度">妙语连珠</a>是什么意思</p>
+<p>行内式的链接格式是：链接的文字放在[]中，链接地址放在随后的（）中，举一反三，经常出现的列表链接就应该这样写：</p>
+<p>代码:</p>
+<pre><code>* [列表1](http://www.baidu.com)
+* [列表2](http://www.baidu.com)
+</code></pre><ul>
+<li><a href="http://www.baidu.com">列表1</a></li><li><a href="http://www.baidu.com">列表2</a></li></ul>
+<p>链接还可以带title属性，好像也只能带title，带不了其他属性，注意，是链接地址后面空一格，然后用引号引起来</p>
+<h2 id="-">参数式</h2>
+<p>代码:</p>
+<pre><code>这里是[百度][link1]，这里是[谷歌][link2]
+[link1]: http://www.baidu.com &quot;百度&quot;
+[link2]: http://www.google.com &quot;谷歌&quot;
+</code></pre><p>这里是<a href="http://www.baidu.com" title="百度">百度</a>，这里是<a href="http://www.google.com" title="谷歌">谷歌</a></p>
+<p>这就好理解了，就是把链接当成参数，适合多出使用相同链接的场景，注意参数的对应关系，参数定义时，这3种写法都可以：</p>
+<pre><code>[foo]: http://example.com/ &quot;Optional Title Here&quot;
+
+[foo]: http://example.com/ &#39;Optional Title Here&#39;
+
+[foo]: http://example.com/ (Optional Title Here)
+</code></pre><p>还支持这种写法，如果你不想混淆的话：</p>
+<pre><code>[foo]: &lt;http://example.com/&gt; &quot;Optional Title Here&quot;
+</code></pre><h2 id="-">隐式链接</h2>
+<p>其实还有一种隐式链接的写法:<br>代码：<code>[google][] [google]: http://google.com/</code><br><a href="http://google.com/">google</a></p>
+<p>链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。</p>
+<h1 id="6-">6、图片</h1>
+<p>图片也有2种方式：行内式和参数式。<br>用法跟链接的基本一样，唯一的不同就是，图片前面要写一个！（这是必须的）</p>
+<h2 id="-">行内式</h2>
+<p>代码:</p>
+<pre><code>![东财](http://www.eastmoney.com/favicon.ico &quot;东财&quot;)东财标识
+</code></pre><p><img src="http://www.eastmoney.com/favicon.ico" alt="东财" title="东财">东财标识</p>
+<h2 id="-">参数式</h2>
+<p>代码:</p>
+<pre><code>[东财]: http://www.eastmoney.com/favicon.ico &quot;东财&quot;
+参数式图片,这里是![东财]
+</code></pre><p>参数式图片,这里是<img src="http://www.eastmoney.com/favicon.ico" alt="东财" title="东财"></p>
+<h1 id="7-">7、代码框</h1>
+<p>如果代码量比较少，只有单行的话，可以用单反引号包起来，如下：</p>
+<p>代码:</p>
+<pre><code>`&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;`
+</code></pre><p><code>&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;</code></p>
+<p>多行用三个反引号(MarkdownPad不识别，推荐使用制表符。如果想让MarkdownPad支持，需设置Tools&gt;Options&gt;Markdown&gt;Markdown Process为GitHub Flavored Markdown(Offline) )，如果要写注释，可以在反引号后面写，如下：</p>
+<p>代码:</p>
+<pre><code>```注释
+&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+```
+</code></pre><pre><code class="lang-注释">&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; title=&quot;百度“ &gt;&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h1 id="8-">8、表格</h1>
+<p>如果想让MarkdownPad支持，需设置Tools&gt;Options&gt;Markdown&gt;Markdown Process为GitHub Flavored Markdown(Offline)或者Markdown(Extra).</p>
+<p>代码:</p>
+<pre><code>| name | age | sex |
+|:---:|:---:|:---:|
+| tony | 20 | 男 |
+| lucy | 18 | 女 |
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">age</th>
+<th style="text-align:center">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tony</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">男</td>
+</tr>
+<tr>
+<td style="text-align:center">lucy</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">女</td>
+</tr>
+</tbody>
+</table>
+<p>代码:</p>
+<pre><code>表头1 | 表头2
+---|---
+Content Cell | Content Cell
+Content Cell | Content Cell
+</code></pre><table>
+<thead>
+<tr>
+<th>表头1</th>
+<th>表头2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<p>代码:</p>
+<pre><code>学号|姓名|分数
+-|-|-
+小明|男|75
+小红|女|79
+</code></pre><table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>男</td>
+<td>75</td>
+</tr>
+<tr>
+<td>小红</td>
+<td>女</td>
+<td>79</td>
+</tr>
+</tbody>
+</table>
+<p>从这3种不同写法看，表格的格式不一定要对的非常起，但是为了好看，对齐肯定是最好的，第一种的分割线后面的冒号表示对齐方式，写在左边表示左对齐，右边为右对齐，两边都写表示居中，还是有点意思的，不过现实出来的结果是，表格外面并没有线框包起来</p>
+<h1 id="9-">9、强调</h1>
+<p>代码:</p>
+<pre><code>*字体倾斜*
+_字体倾斜_
+**字体加粗**
+__字体加粗__
+</code></pre><p><em>字体倾斜</em><br><em>字体倾斜</em><br><strong>字体加粗</strong><br><strong>字体加粗</strong></p>
+<p>一个星号或者是一个下划线包起来，会转换为<em>倾斜，如果是2个，会转换为<code>&lt;strong&gt;</code>加粗</p>
+<h1 id="10-">10、转义</h1>
+<p>代码:</p>
+<pre><code>* \\
+* \`
+* \~
+* \*
+* \_
+* \-
+* \+
+* \.
+* \!
+</code></pre><ul>
+<li>\</li><li>`</li><li>~</li><li>*</li><li>_</li><li>-</li><li>+</li><li>.</li><li>!</li></ul>
+<p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<pre><code>\   反斜线
+`   反引号
+*   星号
+_   底线
+{}  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号
+</code></pre><h1 id="11-">11、删除线</h1>
+<p>代码:</p>
+<pre><code>~~请删掉我吧~~
+</code></pre><p><del>请删掉我吧</del></p>
+<h1 id="12-">12、自动链接</h1>
+<p>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：</p>
+<p><code>&lt;http://example.com/&gt;</code></p>
+<p>Markdown 会转为：<br><a href="http://example.com/">http://example.com/</a></p>
+<p>邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</p>
+<p><code>&lt;address@example.com&gt;</code></p>
+<p>Markdown 会转为：<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#97;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">&#97;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#x6f;&#109;</a></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
